@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>subject:</strong>
+  <%= @haul.subject %>
+</p>
+<p>
+  <strong>store:</strong>
+  <%= @haul.store_name %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @haul.city_name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src=<%=@haul.product_image%> height="500", width="500">
+</p>
+<p>
+  <strong>Discreption:</strong>
+  <%= @haul.discreption %>
+</p>
+<%= link_to 'Edit', edit_haul_path(@haul) %> 
+ <%= link_to 'Back', hauls_path %> 

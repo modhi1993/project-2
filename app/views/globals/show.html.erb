@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>subject:</strong>
+  <%= @global.subject %>
+</p>
+<p>
+  <strong>store:</strong>
+  <%= @global.store_name %>
+</p>
+<p>
+  <strong>City:</strong>
+  <%= @global.city_name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src=<%=@global.product_image%> height="500", width="500">
+</p>
+<p>
+  <strong>Discreption:</strong>
+  <%= @global.discreption %>
+</p>
+
+ <%= link_to 'Back', globals_path %> 

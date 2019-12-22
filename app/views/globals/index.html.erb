@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+<% @global.each do |haul| %>
+    <tr>
+      <td><%= haul.subject   %> </td>
+      |
+    <td><%= haul.store_name %></td>
+
+    <td><%= link_to 'Show', global_path(haul)  %> </td>
+   
+   </tr>
+   <br>
+  <% end %>
+  
+  <% end %>
