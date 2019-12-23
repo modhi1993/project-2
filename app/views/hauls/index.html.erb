@@ -1,10 +1,14 @@
+
+
+
 <% if user_signed_in? %>
 
-      <h2>Welcome <%= current_user.name %></h2>
-     
+   
 <h1>Listing Hauls</h1>
-
-<table>
+<hr style=" margin: 0 10%">
+<table  style="  margin: 10% auto;padding: 1px;
+    text-align:center ;
+     ">
   <tr>
     <th>Subject</th>
     <th>Store</th>
@@ -16,7 +20,7 @@
       <td><%= haul.subject   %> </td>
     <td><%= haul.store_name %></td>
  
- <td>
+
       <td><%= link_to 'Show', haul_path(haul)  %> </td>
    
       <td><%= link_to 'Edit', edit_haul_path(haul) %>  </td>
@@ -25,16 +29,17 @@
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
               </td>
-              </td>
+              
              
-    </tr>
 
-  <% end %>
-  </table>
+</tr>
+
+    <% end %>
+    </table>
   <br>
   <%= link_to 'New haul', new_haul_path %>
   <div>
-     <%= link_to 'Edit Profile', edit_user_registration_path %>
+   
      </div>
     
      

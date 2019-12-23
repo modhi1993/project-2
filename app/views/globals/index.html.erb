@@ -1,14 +1,46 @@
-<% if user_signed_in? %>
-<% @global.each do |haul| %>
-    <tr>
-      <td><%= haul.subject   %> </td>
-      |
-    <td><%= haul.store_name %></td>
 
-    <td><%= link_to 'Show', global_path(haul)  %> </td>
-   
-   </tr>
-   <br>
-  <% end %>
+<% if user_signed_in? %>
+<% $i = false %>
+<div class="marketing-site-content-section">
+<% @global.each do |haul| %>
   
+ 
+  
+      <% if $i == false %>
+  <div class="marketing-site-content-section-img">
+   <img src=<%=haul.product_image%> >
+  </div>
+  <div class="marketing-site-content-section-block">
+      <%= haul.user.name%> 
+      <%= haul.subject   %> 
+    <p class="marketing-site-content-section-block-subheader subheader"><%= haul.store_name %></p>
+    <a href="#" class="round button small">  <% if (current_user.id == haul.user_id)%>
+  <%= link_to 'Delete', [haul],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+    <% end %></a>
+    <%= link_to 'Show', global_path(haul)  %> 
+      </div>
+    <% else%>
+    <%  $i == true %>
+
+  
+   <div class="marketing-site-content-section-block small-order-2 medium-order-1">
+    <h3 class="marketing-site-content-section-block-header">Yeti Snowcone Agency</h3>
+    <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
+    <a href="#" class="round button small">learn more</a>
+  </div>
+  <div class="marketing-site-content-section-img small-order-1 medium-order-2">
+    <img src="https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" />
+  </div>
+    </div>
+<%end%>
+
+    
+
+    
+
+  
+  <% end %>
+
   <% end %>

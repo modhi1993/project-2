@@ -2,12 +2,13 @@ class HaulsController < ApplicationController
     before_action :authenticate_user!
     
     def index
-
       @user = current_user
-        @haul = current_user.hauls
+      @haul = current_user.hauls
+       
     end
     def show
       @haul = Haul.find(params[:id])
+      @city =City.find(@haul.city_id)
     end
     def new
         @haul = current_user.hauls.new
@@ -32,11 +33,9 @@ class HaulsController < ApplicationController
      redirect_to hauls_path
     end
 
-    
-
     private
   def haul_params
-    params.require(:haul).permit( :subject, :store_name, :city_name, :product_image, :discreption)
+    params.require(:haul).permit( :subject, :store_name, :city_id, :product_image, :discreption)
   end
 end
 

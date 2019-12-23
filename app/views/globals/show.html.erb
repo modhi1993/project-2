@@ -10,11 +10,11 @@
 </p>
 <p>
   <strong>City:</strong>
-  <%= @global.city_name %>
+  <%=  @city.cityname%>
 </p>
 
 <p>
-  <strong>Image:</strong>
+
   <img src=<%=@global.product_image%> height="500", width="500">
 </p>
 <p>
@@ -22,4 +22,40 @@
   <%= @global.discreption %>
 </p>
 
+
+<h4>Comments</h4>
+<% @global.comments.each do |comment| %>
+    
+  <p>
+   <%= comment.user.name%> : <%= comment.title %>
+  </p>
+ 
+  <p><%= comment.body %>
+ <% if (current_user.id == comment.user_id)%>
+  <%= link_to 'Delete Comment', [comment.haul, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @global, @global.comments.build ], local: true) do |form| %>
+ 
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_area :title %>
+  </p>
+  <p>
+    <%= form.label :body%><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit 'post' %>
+  </p>
+<% end %>
+
  <%= link_to 'Back', globals_path %> 
+
+
+
