@@ -36,8 +36,8 @@ body{ color: #3b4b66;
     width: 800px;
     margin:  auto ;
 }
-.m{ background-color: rgba(255, 255, 255, 0.4);
-margin-top: none;}
+/* .m{ background-color: rgba(255, 255, 255, 0.4);
+margin-top: none;} */
 td{ border-bottom: 1px solid gray !important;
 
 }
