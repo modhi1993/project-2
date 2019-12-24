@@ -1,6 +1,6 @@
 <% @city.each do |city| %>
 
-<div class="gallery" onclick="<%=city_path(city)%>">
+<div class="gallery" href="<%=city_path(city)%>">
   <a  href="<%=city_path(city)%>">
     <img src="<%= city.img %>" alt="Cinque Terre" width="600" height="400">
   </a>

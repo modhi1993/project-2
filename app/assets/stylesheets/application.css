@@ -17,7 +17,7 @@
 
 body{ color: #3b4b66;
 
-     background-color: #9c0039; 
+     background-color: whitesmoke; 
      
     background-size: cover;
     background-repeat: no-repeat; 
@@ -275,7 +275,7 @@ body{ color: #3b4b66;
 div.gallery {
     margin: 2px;
     border: 1px solid #ccc;
-    float: left;
+    float: right;
     width: 180px;
   }
   
