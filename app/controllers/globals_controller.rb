@@ -1,9 +1,9 @@
 class GlobalsController < ApplicationController 
-    before_action :authenticate_user!
     def index
         @global =Haul.all
+        if user_signed_in? 
         @user = current_user
-    
+        end
     end
    
     def show

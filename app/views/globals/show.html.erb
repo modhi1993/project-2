@@ -1,15 +1,12 @@
+<div class="comment-section-box">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>subject:</strong>
+<h4>
+ 
   <%= @global.subject %>
-</p>
+</h4>
 <p>
-  <strong>store:</strong>
-  <%= @global.store_name %>
-</p>
-<p>
-  <strong>City:</strong>
+  <%= @global.store_name %>,
   <%=  @city.cityname%>
 </p>
 
@@ -21,24 +18,41 @@
   <strong>Discreption:</strong>
   <%= @global.discreption %>
 </p>
+</div>
+<%# ##################################################### %>
 
-
-<h4>Comments</h4>
-<% @global.comments.each do |comment| %>
-    
-  <p>
-   <%= comment.user.name%> : <%= comment.title %>
-  </p>
  
-  <p><%= comment.body %>
+ 
+  <div class="comment-section-container"> 
+
+<h3>Comments</h3>
+<% @global.comments.each do |comment| %>
+
+ <div class="comment-section-author">
+    <div class="comment-section-name">
+     <p>
+   <%= comment.user.name%> : <%= comment.title %><br>
+    <p><%= comment.body %>
+  </p>
+    </div>
+  </div>
+  <div class="comment-section-text">
+    <%if user_signed_in?%> 
  <% if (current_user.id == comment.user_id)%>
-  <%= link_to 'Delete Comment', [comment.haul, comment],
+  <%= link_to 'Delete', [comment.haul, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
     <% end %>
+     <% end %>
   </p>
-<% end %>
+  </div>
+<hr>
 
+
+<% end %>
+</div>
+  <div class="comment-section-box">
+    <%if user_signed_in?%> 
 <h2>Add a comment:</h2>
 <%= form_with(model: [ @global, @global.comments.build ], local: true) do |form| %>
  
@@ -55,7 +69,22 @@
   </p>
 <% end %>
 
- <%= link_to 'Back', globals_path %> 
+<% else %>
+<p>
+    "Want to add a comment? join our community if you haven't already! "
+    <button>
+<%= link_to 'sign in' , user_session_path %>
+</button>  &nbsp; &nbsp; | &nbsp; &nbsp; <button>
+  
+<%= link_to 'sign up' , new_user_registration_path %></button>
+  </p>
+<% end %>
+
+
+<%= link_to 'Back', url_for(:back) %>
+
+
+</div>
 
 
 

@@ -1,46 +1,26 @@
 
-
-
 <% if user_signed_in? %>
 
-   
-<h1>Listing Hauls</h1>
+
+   <ul class="list-group">
+   <h1>Listing Hauls</h1>
 <hr style=" margin: 0 10%">
-<table  style="  margin: 10% auto;padding: 1px;
-    text-align:center ;
-     ">
-  <tr>
-    <th>Subject</th>
-    <th>Store</th>
-    <th colspan="3"></th>
-  </tr>
-
-  <% @haul.each do |haul| %>
-    <tr>
-      <td><%= haul.subject   %> </td>
-    <td><%= haul.store_name %></td>
- 
-
-      <td><%= link_to 'Show', haul_path(haul)  %> </td>
+    <% @haul.each do |haul| %>
+  <li class="list-group-item"><%= haul.subject %> <%= haul.store_name %>   <%= link_to 'Show', haul_path(haul)  %> 
    
-      <td><%= link_to 'Edit', edit_haul_path(haul) %>  </td>
+      <%= link_to 'Edit', edit_haul_path(haul) %> 
 
-      <td><%= link_to 'Destroy', haul_path(haul),
+   <%= link_to 'Destroy', haul_path(haul),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-              </td>
-              
-             
+              data: { confirm: 'Are you sure?' } %></li>
+   <% end %>
+   <li class="list-group-item " style="background:white;"> <%= link_to 'New haul', new_haul_path %></li>
+</ul>
+<%else%>
 
-</tr>
 
-    <% end %>
-    </table>
-  <br>
-  <%= link_to 'New haul', new_haul_path %>
-  <div>
-   
-     </div>
-    
-     
+
+
+
+
  <%end%>

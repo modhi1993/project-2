@@ -1,9 +1,9 @@
 
 class CommentsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, only: [:new , :destroy, :create]
     def index
       @comments = Comment.all
-      # @user = user.all
+       @user = user.all
      end
     
      def new
@@ -18,9 +18,8 @@ class CommentsController < ApplicationController
     def create
       @haul = Haul.find(params[:haul_id])
       @comment = @haul.comments.create(comment_params)
-   
       @comment.user = current_user
-     
+      @comment.save
       redirect_to global_path(@haul) 
     end
     

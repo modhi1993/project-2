@@ -1,5 +1,5 @@
 
-<% if user_signed_in? %>
+
 <% $i = false %>
 <div class="marketing-site-content-section">
 <% @global.each do |haul| %>
@@ -14,11 +14,11 @@
       <%= haul.user.name%> 
       <%= haul.subject   %> 
     <p class="marketing-site-content-section-block-subheader subheader"><%= haul.store_name %></p>
-    <a href="#" class="round button small">  <% if (current_user.id == haul.user_id)%>
+    <a href="#" class="round button small">  <%if user_signed_in?%> <% if (current_user.id == haul.user_id)%>
   <%= link_to 'Delete', [haul],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
-    <% end %></a>
+    <% end %><% end %></a>
     <%= link_to 'Show', global_path(haul)  %> 
       </div>
     <% else%>
@@ -36,11 +36,7 @@
     </div>
 <%end%>
 
-    
-
-    
-
-  
   <% end %>
+ 
 
-  <% end %>
+

@@ -1,15 +1,17 @@
 class HaulsController < ApplicationController
-    before_action :authenticate_user!
-    
+  
+  before_action :authenticate_user! , only: [:new , :edit , :update, :destroy, :create]
     def index
+      if user_signed_in? 
       @user = current_user
       @haul = current_user.hauls
-       
+      end
     end
     def show
       @haul = Haul.find(params[:id])
       @city =City.find(@haul.city_id)
     end
+   
     def new
         @haul = current_user.hauls.new
     end
