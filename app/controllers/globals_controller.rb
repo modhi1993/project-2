@@ -11,7 +11,6 @@ class GlobalsController < ApplicationController
         @comment = Comment.where(haul_id: @global)
         @user = User.where(user_id: @comment)
         @city =City.find(@global.city_id)
-
     end
 
 

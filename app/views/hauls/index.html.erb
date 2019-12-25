@@ -17,10 +17,12 @@
    <li class="list-group-item " style="background:white;"> <%= link_to 'New haul', new_haul_path %></li>
 </ul>
 <%else%>
-
-
-
-
-
-
+<p>
+    "Want to add a comment? join our community if you haven't already! "
+    <button>
+<%= link_to 'sign in' , user_session_path %>
+</button>  &nbsp; &nbsp; | &nbsp; &nbsp; <button>
+  
+<%= link_to 'sign up' , new_user_registration_path %></button>
+  </p>
  <%end%>
