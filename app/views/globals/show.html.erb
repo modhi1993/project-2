@@ -31,8 +31,8 @@
  <div class="comment-section-author">
     <div class="comment-section-name">
      <p>
-   <%= comment.user.name%> : <%= comment.title %><br>
-    <p><%= comment.body %>
+   <%= comment.user.name%> : <%= comment.body %><br>
+    
   </p>
     </div>
   </div>
@@ -56,10 +56,7 @@
 <h2>Add a comment:</h2>
 <%= form_with(model: [ @global, @global.comments.build ], local: true) do |form| %>
  
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_area :title %>
-  </p>
+
   <p>
     <%= form.label :body%><br>
     <%= form.text_area :body %>
@@ -81,7 +78,7 @@
 <% end %>
 
 
-<%= link_to 'Back', url_for(:back) %>
+<%= link_to 'Back', city_path %>
 
 
 </div>

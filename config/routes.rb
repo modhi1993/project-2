@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users 
+  resources :profiles, only: [:index, :edit, :update]
   resources :hauls do
     resources :comments
   end
   resources :globals
   resources :cities
-  resources :profiles
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "hauls#index"
 end

@@ -1,0 +1,38 @@
+  <div class="comment-section-box">
+<% if user_signed_in? %>
+
+
+<p>
+  <strong>Image:</strong>
+<%# <%=if( @profile.image != nil )%> 
+   <img src= <%= @profile.image %> height="500", width="500">
+  <%# <%end%>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @profile.about %>
+</p>
+
+
+   <a><%= link_to 'Edit Account', edit_user_registration_path %></a>
+   &nbsp; &nbsp; | &nbsp; &nbsp;
+   <a><%= link_to 'Edit profile', edit_profile_path(1) %></a>
+<%else%>
+
+
+
+<p>
+    "Want to add a comment? join our community if you haven't already! "
+    <button>
+<%= link_to 'sign in' , user_session_path %>
+</button>  &nbsp; &nbsp; | &nbsp; &nbsp; <button>
+  
+<%= link_to 'sign up' , new_user_registration_path %></button>
+
+  </p>
+
+
+<%= link_to 'Back', @back_url %>
+ <%end%>
+ </div>
