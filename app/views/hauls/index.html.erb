@@ -1,28 +1,58 @@
+<div class="jumbotron-fluid">
+
+  <%# <div class="container">
+    <h1>Look for the Perfect Deal</h1> 
+    <p>Browse bargains and get informed by others..never miss a deal...</p> 
+ 
+
+</div> %>
+<div class="marketing-site-hero">
+  <div class="marketing-site-hero-content whi">
+    <% if user_signed_in? %> <h1 style="color=white!important;">
+     Welcome <%= current_user.name %> <span class="sr-only">(current)</span> </h1>
+     <%else%>
+
+ 
+
+
+<p >
+    " Join our community if you haven't already! "</p>
+    <button>
+<%= link_to 'sign in' , user_session_path %>
+</button>  &nbsp; &nbsp; | &nbsp; &nbsp; <button>
+  
+<%= link_to 'sign up' , new_user_registration_path %></button>
+<%end%>
+    <p class="subheader">where you could find the most amaizing bargains ,hot deals and much more</p>
+   
+ 
+</div> </div> </div>
+
+
 
 <% if user_signed_in? %>
 
 
    <ul class="list-group">
-   <h1>Listing Hauls</h1>
+   <h5 style="color:grey;">Listing Hauls</h5>
 <hr style=" margin: 0 10%">
     <% @haul.each do |haul| %>
-  <li class="list-group-item"><%= haul.subject %> <%= haul.store_name %>   <%= link_to 'Show', haul_path(haul)  %> 
+  <li class="list-group-item"><%= haul.subject %>&nbsp; &nbsp; | &nbsp; &nbsp;  <%= haul.store_name %> <br>  <%= link_to 'Show', haul_path(haul)  %> 
    
       <%= link_to 'Edit', edit_haul_path(haul) %> 
 
    <%= link_to 'Destroy', haul_path(haul),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></li>
-   <% end %>
-   <li class="list-group-item " style="background:white;"> <%= link_to 'New haul', new_haul_path %></li>
+                 <% end %>
+                 <li class="list-group-item " style="background:white;"> <%= link_to 'New haul', new_haul_path %></li>
 </ul>
-<%else%>
-<p>
-    "Want to add a comment? join our community if you haven't already! "
-    <button>
-<%= link_to 'sign in' , user_session_path %>
-</button>  &nbsp; &nbsp; | &nbsp; &nbsp; <button>
-  
-<%= link_to 'sign up' , new_user_registration_path %></button>
-  </p>
+
+
+
+
+ 
+  </li>
+  </ul>
  <%end%>
+ 

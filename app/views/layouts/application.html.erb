@@ -4,6 +4,8 @@
     <title>What a Bargain</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+  <link href="https://fonts.googleapis.com/css?family=Orbitron|Permanent+Marker&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="application.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,6 +13,15 @@
   </head>
 
   <body >
+  <div class="jumbotron text-center" style="margin-bottom:0">
+ 
+<h1>   &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;  </h1>
+<h1>   &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;  </h1>
+ 
+<h1>   &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;  </h1>
+<h1>   &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;     &nbsp; &nbsp;  </h1>
+
+</div>
   <header id="header black">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" >
   <a class="navbar-brand" href="/">What a Bargain!</a>
@@ -30,10 +41,12 @@
         <li class="nav-item">
         <a class="nav-link" href= "<%=cities_path %>" >Bargains Based on Cities </a>
       </li>
-     
+      <li>
+   
+     </li>
     </ul>
     <% if user_signed_in? %>
-     Welcome <%= current_user.name %> <span class="sr-only">(current)</span>
+    
 
 
     <form class="form-inline my-2 my-lg-0">
@@ -71,18 +84,25 @@
   </div>
 </nav>
 </header>
+  
   <main  class="m container center" >
 
- 
+
    
     <%= yield %>
-      <p class="notice"><%= notice %></p>
+    <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p> 
+     
     </main>
-
+  
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
   </body>
- 
+ <footer>
+  <div class="jumbotron text-center" style="margin-bottom:0; background-image:none; background-color:#52c4eb;filter: blur(0px);
+  -webkit-filter: blur(0px);">
+  <p>Done by Modhi Aldughaiyem</p>
+</div>
+ </footer>
 </html>

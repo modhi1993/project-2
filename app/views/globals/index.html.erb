@@ -1,42 +1,54 @@
 
+<div class="people-you-might-know center2">
+  <div class="add-people-header">
+    <h6 class="header-title">
+      Bargains From Around The Kingdom
+    </h6>
+  </div>
 
-<% $i = false %>
-<div class="marketing-site-content-section">
 <% @global.each do |haul| %>
   
- 
-  
-      <% if $i == false %>
-  <div class="marketing-site-content-section-img">
-   <img src=<%=haul.product_image%> >
-  </div>
-  <div class="marketing-site-content-section-block">
-      <%= haul.user.name%> 
-      <%= haul.subject   %> 
-    <p class="marketing-site-content-section-block-subheader subheader"><%= haul.store_name %></p>
-    <a href="#" class="round button small">  <%if user_signed_in?%> <% if (current_user.id == haul.user_id)%>
+
+
+  <div class="row add-people-section">
+    <div class="small-12 medium-6 columns about-people">
+      <div class="about-people-avatar">
+           <img src=<%=haul.product_image%> height="50", width="50" class="imgs6" >
+      </div>
+      <div class="about-people-author">
+        <p class="author-name">
+        <%= haul.subject   %> 
+        </p>
+        <p class="author-location">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+         
+            <%= haul.user.name%> 
+      <%= haul.store_name %></p>
+      </div>    
+    </div>
+    <div class="small-12 medium-6 columns add-friend">
+      <div class="add-friend-action">
+     <a href="#" class="round button small">  <%if user_signed_in?%> <% if (current_user.id == haul.user_id)%>
   <%= link_to 'Delete', [haul],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
     <% end %><% end %></a>
     <%= link_to 'Show', global_path(haul)  %> 
       </div>
-    <% else%>
-    <%  $i == true %>
+    </div>   </div>
+  <%# </div>
+ 
+</div> %>
 
-  
-   <div class="marketing-site-content-section-block small-order-2 medium-order-1">
-    <h3 class="marketing-site-content-section-block-header">Yeti Snowcone Agency</h3>
-    <p class="marketing-site-content-section-block-subheader subheader">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis, maxime libero natus qui minus!</p>
-    <a href="#" class="round button small">learn more</a>
-  </div>
-  <div class="marketing-site-content-section-img small-order-1 medium-order-2">
-    <img src="https://images.pexels.com/photos/300857/pexels-photo-300857.jpeg?h=350&auto=compress&cs=tinysrgb" alt="" />
-  </div>
-    </div>
 <%end%>
+  
+  </div>
+ 
 
-  <% end %>
+
+
+
+
  
 
 

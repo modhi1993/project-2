@@ -4,8 +4,8 @@
 
 
 
-   <ul class="list-group">
-   <h1>Listing Hauls</h1>
+   <ul class="list-group" id="partners">
+   <h1>Listing Bargains</h1>
 <hr style=" margin: 0 10%">
     <% @hauls.each do |haul| %>
   <li class="list-group-item"><%= haul.subject %> <%= haul.store_name %>   <%= link_to 'Show',global_path(haul)  %> 

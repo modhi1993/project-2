@@ -12,7 +12,7 @@
 
 <p>
 
-  <img src=<%=@global.product_image%> height="500", width="500">
+  <img src=<%=@global.product_image%> height="500", width="500" class="imgs6">
 </p>
 <p>
   <strong>Discreption:</strong>
@@ -29,20 +29,26 @@
 <% @global.comments.each do |comment| %>
 
  <div class="comment-section-author">
+ <% if comment.user.profile.image !=nil %>
+ 
+ <img src="<%= comment.user.profile.image%>" alt="" width="50" height="50" class="imgs"> 
+      <% end %>
     <div class="comment-section-name">
+    
      <p>
-   <%= comment.user.name%> : <%= comment.body %><br>
+  <%= comment.user.name%> : <%= comment.body %><br>
     
   </p>
     </div>
-  </div>
+ 
   <div class="comment-section-text">
     <%if user_signed_in?%> 
- <% if (current_user.id == comment.user_id)%>
+ <% if (current_user.id == comment.user_id) %>&nbsp; &nbsp;&nbsp; &nbsp;
   <%= link_to 'Delete', [comment.haul, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
     <% end %>
+     </div>
      <% end %>
   </p>
   </div>
@@ -78,7 +84,7 @@
 <% end %>
 
 
-<%= link_to 'Back', city_path %>
+
 
 
 </div>
